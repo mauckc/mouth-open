@@ -24,3 +24,5 @@ python detect_open_mouth.py
 ```
 
 ![sample gif](./video/mouth_open.gif)
+
+![sample gif](./video/facial_landmarks_68markup-768x619.jpg)
