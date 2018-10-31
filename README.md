@@ -28,6 +28,6 @@ python detect_open_mouth.py
 ![sample gif](./video/facial_landmarks_68markup-768x619.jpg)
 
 
-![trump-mouth](./video/out-trump.gif)
+![trump-mouth](./video/out_trump.gif)
 
 ![trump-mouth](./video/trump-mouth.gif)
