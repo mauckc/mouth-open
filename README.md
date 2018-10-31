@@ -29,5 +29,3 @@ python detect_open_mouth.py
 
 
 ![trump-mouth](./video/out_trump.gif)
-
-![trump-mouth](./video/trump-mouth.gif)
