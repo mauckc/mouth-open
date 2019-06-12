@@ -23,6 +23,8 @@ This sample version uses your webcam, so make sure that the device you are using
 python detect_open_mouth.py
 ```
 
+[dlib shape predictor](https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat)
+
 ![sample gif](./video/mouth_open.gif)
 
 ![sample gif](./video/facial_landmarks_68markup-768x619.jpg)
