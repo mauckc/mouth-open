@@ -17,8 +17,8 @@ import cv2
 def mouth_aspect_ratio(mouth):
 	# compute the euclidean distances between the two sets of
 	# vertical mouth landmarks (x, y)-coordinates
-	A = dist.euclidean(mouth[2], mouth[9]) # 51, 59
-	B = dist.euclidean(mouth[4], mouth[7]) # 53, 57
+	A = dist.euclidean(mouth[2], mouth[10]) # 51, 59
+	B = dist.euclidean(mouth[4], mouth[8]) # 53, 57
 
 	# compute the euclidean distance between the horizontal
 	# mouth landmark (x, y)-coordinates
@@ -39,7 +39,7 @@ ap.add_argument("-w", "--webcam", type=int, default=0,
 args = vars(ap.parse_args())
 
 # define one constants, for mouth aspect ratio to indicate open mouth
-MOUTH_AR_THRESH = 0.6
+MOUTH_AR_THRESH = 0.79
 
 # initialize dlib's face detector (HOG-based) and then create
 # the facial landmark predictor
@@ -87,18 +87,16 @@ while True:
 		mouth = shape[mStart:mEnd]
 
 		mouthMAR = mouth_aspect_ratio(mouth)
-        mar = mouthMAR
+		mar = mouthMAR
 		# compute the convex hull for the mouth, then
 		# visualize the mouth
-        mouthHull = cv2.convexHull(mouth)
-
-        cv2.drawContours(frame, [mouthHull], -1, (0, 255, 0), 1)
-
-        cv2.putText(frame, "MAR: {:.2f}".format(mar), (30, 30),
-			cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+		mouthHull = cv2.convexHull(mouth)
+		
+		cv2.drawContours(frame, [mouthHull], -1, (0, 255, 0), 1)
+		cv2.putText(frame, "MAR: {:.2f}".format(mar), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
         # Draw text if mouth is open
-        if mar > MOUTH_AR_THRESH:
+		if mar > MOUTH_AR_THRESH:
 			cv2.putText(frame, "Mouth is Open!", (30,60),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255),2)
 	# Write the frame into the file 'output.avi'
